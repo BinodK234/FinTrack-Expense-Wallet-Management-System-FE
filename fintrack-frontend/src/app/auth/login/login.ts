@@ -1,26 +1,34 @@
 import { Component, inject } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../core/services/auth/auth-service';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule, MatCardModule, MatInputModule, ReactiveFormsModule, MatButtonModule],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
 export class Login {
 
   authService = inject(AuthService);
-  onSubmit(form: NgForm) {
-    if (form.invalid) return;
-    this.authService.login(form.value).subscribe({
-      next: (response: any) => {
-        console.log('Login successful', response);
-        this.authService.saveToken(response.token);
-      },
-      error: (error) => {
-        console.error('Login failed', error);
-      }
-    });
-}
-}
+  router = inject(Router);
+
+  form: FormGroup = new FormGroup({
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', [Validators.required])
+  })
+  openRegisterPage() {
+    this.router.navigate(['register']);
+  }
+  submit() {
+    console.log(this.form.value);
+    this.authService.login(this.form.value).subscribe((res: any) => {
+      console.log(res);
+      this.authService.saveToken(res.token);
+      // this.router.navigate(['dashboard']);
+    })
+  }}
