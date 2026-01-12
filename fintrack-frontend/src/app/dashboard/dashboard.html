@@ -1,0 +1,89 @@
+<div class="dashboard">
+    <!-- Page Header -->
+    <mat-card class="header-card">
+        <div class="header">
+            <div>
+                <h1>My Finances</h1>
+                <p>Tracking your path to financial freedom.</p>
+            </div>
+            <div class="actions">
+                <button mat-stroked-button color="warn" routerLink="spend-money"><mat-icon>add</mat-icon>Debit</button>
+                <button mat-raised-button color="primary" routerLink="/add-money">
+                    <mat-icon>add</mat-icon> Add Money
+                </button>
+            </div>
+        </div>
+    </mat-card>
+    <!-- </div> -->
+    <!-- Summary cards -->
+    <mat-grid-list cols="3" rowHeight="120px" gutterSize="16px" class="summary-grid">
+        <mat-grid-tile>
+            <mat-card class="summary-card">
+                <div class="summary-inner">
+                    <mat-icon color="primary">account_balance_wallet</mat-icon>
+                    <div>
+                        <p class="label">Net Balance</p>
+                        <h2>₹ {{ summary().balance }}</h2>
+                    </div>
+                </div>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-card class="summary-card credit">
+                <mat-icon>trending_up</mat-icon>
+                <p class="label">Total Credit</p>
+                <h2> ₹ {{ summary().totalCredit }}</h2>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-card class="summary-card debit">
+                <mat-icon>trending_down</mat-icon>
+                <p class="label">Total Debit</p>
+                <h2>- ₹ {{ summary().totalDebit }}</h2>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <!-- Middle section -->
+    <div class="grid-2">
+        <mat-card class="block">
+            <div>Cash Flow History</div>
+            <mat-divider></mat-divider>
+            <div class="chart-placeholder">📈 Chart here</div>
+        </mat-card>
+        <mat-card class="block">
+            <div>Recent Activity</div>
+            <mat-divider></mat-divider>
+            <mat-list>
+                @for(tx of transactions(); track $index) {
+                <mat-list-item>
+                    <mat-icon matListIcon>
+                        {{ tx.type === 'CREDIT' ? 'add_circle' : 'remove_circle' }}
+                    </mat-icon>
+                    <div matLine>{{ tx.category || tx.type }}</div>
+                    <div matLine class="date">{{ tx.createdAt | date }}</div>
+                    <span class="amount">
+                        {{ tx.type === 'CREDIT' ? '+' : '-' }}₹{{ tx.amount }}
+                    </span>
+                </mat-list-item>
+                }
+            </mat-list>
+            <button mat-button color="primary" routerLink="/transactions">
+                Full transaction logs →
+            </button>
+        </mat-card>
+    </div>
+    <div class="grid-2">
+        <mat-card class="block">
+            <div>Spendings Analysis</div>
+            <mat-divider></mat-divider>
+            <div class="chart-placeholder">🍩 Pie chart here</div>
+        </mat-card>
+        <mat-card class="block">
+            <div>AI Wealth Advisor</div>
+            <mat-divider></mat-divider>
+            <p>Personalized wealth-building strategies generated from your real data.</p>
+        </mat-card>
+    </div>
+</div>

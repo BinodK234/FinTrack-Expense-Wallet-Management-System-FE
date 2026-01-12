@@ -29,6 +29,7 @@ export class Login {
     this.authService.login(this.form.value).subscribe((res: any) => {
       console.log(res);
       this.authService.saveToken(res.token);
-      // this.router.navigate(['dashboard']);
+      debugger
+      this.router.navigate(['dashboard']);
     })
   }}
