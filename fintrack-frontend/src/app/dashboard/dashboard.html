@@ -7,8 +7,8 @@
                 <p>Tracking your path to financial freedom.</p>
             </div>
             <div class="actions">
-                <button mat-stroked-button color="warn" routerLink="spend-money"><mat-icon>add</mat-icon>Debit</button>
-                <button mat-raised-button color="primary" routerLink="/add-money">
+                <button mat-stroked-button color="warn" (click)="openTransaction('DEBIT')"><mat-icon>add</mat-icon>Debit</button>
+                <button mat-raised-button color="primary" (click)="openTransaction('CREDIT')">
                     <mat-icon>add</mat-icon> Add Money
                 </button>
             </div>

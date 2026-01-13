@@ -9,6 +9,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { DatePipe } from '@angular/common';
 import { DashboardService } from '../core/services/dashboard/dashboard-service';
 import { RouterLink } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { TransactionDialog } from '../wallet/transaction-dialog/transaction-dialog';
 
 @Component({
   selector: 'app-dashboard',
@@ -30,6 +32,7 @@ import { RouterLink } from '@angular/router';
 export class Dashboard implements OnInit {
   dashboardService = inject(DashboardService);
   // private cdr = inject(ChangeDetectorRef);
+  dialog = inject(MatDialog)
 
   summary = signal({
     balance: 0,
@@ -60,5 +63,18 @@ loadDashboard() {
     },
     error: err => console.error(err)
   });
+}
+openTransaction(type: 'CREDIT' | 'DEBIT'){
+  const ref = this.dialog.open(TransactionDialog, {
+    width: '480px',
+    panelClass: 'fin-dialog',
+    data: {type}
+  })
+   ref.afterClosed().subscribe(refresh => {
+    if (refresh) {
+      this.loadDashboard(); // reload summary + recent
+    }
+  });
+
 }
 }
