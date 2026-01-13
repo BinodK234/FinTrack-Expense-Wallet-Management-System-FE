@@ -1,0 +1,96 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: #777;
+  margin-bottom: 14px;
+}
+
+.toggle {
+  background: #f3f5f9;
+  border-radius: 12px;
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.toggle button {
+  flex: 1;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.toggle .active {
+  background: white;
+  color: #10b981;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #f5f7fb;
+  margin: 6px 0 14px;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+.amount {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #f5f7fb;
+  border-radius: 12px;
+  padding: 10px;
+  gap: 6px;
+}
+
+.amount input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 18px;
+  width: 100%;
+}
+
+.green { color: #10b981; font-weight: 700; }
+.red { color: #ef4444; font-weight: 700; }
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0 20px;
+}
+
+.chips button {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  background: white;
+}
+
+.chips .active {
+  background: #10b981;
+  color: white;
+  border: none;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

@@ -1,0 +1,52 @@
+<!-- <h2 class="title">New Transaction
+<button mat-icon-button class="close" (click)="close()">
+    <mat-icon>close</mat-icon>
+</button>
+<p>Record your financial Activity</p>
+</h2> -->
+<h2 class="title">
+  New Transaction
+  <button mat-icon-button class="close" (click)="close()">
+    <mat-icon>close</mat-icon>
+  </button>
+</h2>
+
+<p class="subtitle">Record your financial activity</p>
+
+<div class="toggle">
+    <button mat-button [class.active]="mode==='DEBIT'" (click)="setMode('DEBIT')">Expenses</button>
+    <button mat-button [class.active]="mode==='CREDIT'" (click)="setMode('CREDIT')">Income</button>
+</div>
+
+<form [formGroup]="form">
+    <label>Transaction Title</label>
+    <input matInput formControlName="title" placeholder="eg Starbucks coffee" class="input">
+
+    <div class="row">
+        <div class="amount">
+            <span [class.green]="mode==='CREDIT'">+</span>
+            <span [class.red]="mode==='DEBIT'">-</span>
+            <input type="number" formControlName="amount">
+        </div>
+        <mat-form-field appearance="outline">
+            <mat-label>Date</mat-label>
+            <input matInput formControlName="date" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <label>Category</label>
+    <div class="chips">
+        @for(cat of categories; track cat) {
+        <button type="button" (click)="selectCategory(cat)" [class.selected]="form.value.category===cat">{{ cat }}</button>
+        }
+    </div>
+</form>
+
+<div class="actions">
+    <button (click)="close()">Cancel</button>
+     <button mat-raised-button [color]="mode==='CREDIT' ? 'primary' : 'warn'"
+          (click)="submit()">
+    {{ mode==='CREDIT' ? 'Confirm Income' : 'Add Expense' }}
+  </button>
+</div>
