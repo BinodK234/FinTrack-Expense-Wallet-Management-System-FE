@@ -5,6 +5,7 @@ import { MainLayout } from './layout/main-layout/main-layout';
 import { Dashboard } from './dashboard/dashboard';
 import { AddMoney } from './wallet/add-money/add-money';
 import { SpendMoney } from './wallet/spend-money/spend-money';
+import { Transactions } from './wallet/transactions/transactions';
 
 export const routes: Routes = [
     {path: '', component: Login},
@@ -14,9 +15,8 @@ export const routes: Routes = [
     component: MainLayout,
     children: [
       { path: 'dashboard', component: Dashboard },
-      {path: 'add-money', component: AddMoney},
-      {path: 'spend-money', component: SpendMoney}
       // later: add-money, spend-money, transactions
     ]
-  }
+  },
+  {path: 'transactions', component: Transactions}
 ];
