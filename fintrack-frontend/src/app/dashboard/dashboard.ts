@@ -11,6 +11,8 @@ import { DashboardService } from '../core/services/dashboard/dashboard-service';
 import { RouterLink } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { TransactionDialog } from '../wallet/transaction-dialog/transaction-dialog';
+import { CashflowCharts } from './components/cashflow-charts/cashflow-charts';
+import { SpendingAnalysis } from './components/spending-analysis/spending-analysis';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,7 +26,9 @@ import { TransactionDialog } from '../wallet/transaction-dialog/transaction-dial
     MatDividerModule,
     MatToolbarModule,
     DatePipe,
-    RouterLink
+    RouterLink,
+    CashflowCharts,
+    SpendingAnalysis
   ],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
