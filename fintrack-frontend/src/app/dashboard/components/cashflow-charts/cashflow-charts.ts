@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, ElementRef, inject, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, effect, ElementRef, inject, OnDestroy, ViewChild } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import Chart from 'chart.js/auto';
 import { Report } from '../../../core/services/report';
+import { DashboardState } from '../../state/dashboard-state';
 @Component({
   selector: 'app-cashflow-charts',
   imports: [MatCardModule],
@@ -12,6 +13,14 @@ export class CashflowCharts implements AfterViewInit, OnDestroy {
   @ViewChild('chart') chartRef!: ElementRef<HTMLCanvasElement>;
 
   report = inject(Report);
+  state = inject(DashboardState)
+
+  constructor() {
+    effect(() => {
+      this.loadChart(this.state.month(), this.state.year());
+
+    })
+  }
 
   private chart!: Chart;
 
