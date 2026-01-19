@@ -1,0 +1,19 @@
+<div class="filter">
+      <mat-form-field appearance="outline">
+        <mat-label>Month</mat-label>
+        <mat-select [value]="state.month()" (selectionChange)="state.setMonth($event.value)">
+          @for(m of months; track m.value){
+            <mat-option [value]="m.value">{{m.label}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Year</mat-label>
+        <mat-select [value]="state.year()" (selectionChange)="state.setYear($event.value)">
+          @for(y of years; track y){
+            <mat-option [value]="y">{{y}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>

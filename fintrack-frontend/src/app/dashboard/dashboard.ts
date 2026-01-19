@@ -13,6 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TransactionDialog } from '../wallet/transaction-dialog/transaction-dialog';
 import { CashflowCharts } from './components/cashflow-charts/cashflow-charts';
 import { SpendingAnalysis } from './components/spending-analysis/spending-analysis';
+import { MonthFilter } from './components/month-filter/month-filter';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,7 +29,8 @@ import { SpendingAnalysis } from './components/spending-analysis/spending-analys
     DatePipe,
     RouterLink,
     CashflowCharts,
-    SpendingAnalysis
+    SpendingAnalysis,
+    MonthFilter
   ],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
