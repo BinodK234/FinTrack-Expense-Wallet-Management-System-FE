@@ -17,11 +17,15 @@ export class AuthService {
     localStorage.setItem('token', token);
   }
 
-  getToken() {
-    localStorage.getItem('token');
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
 
   logout() {
     localStorage.removeItem('token');
+  }
+
+    isLoggedIn(): boolean {
+    return !!this.getToken();
   }
 }

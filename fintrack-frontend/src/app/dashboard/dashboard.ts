@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { MatCard } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -14,7 +14,7 @@ import { TransactionDialog } from '../wallet/transaction-dialog/transaction-dial
 import { CashflowCharts } from './components/cashflow-charts/cashflow-charts';
 import { SpendingAnalysis } from './components/spending-analysis/spending-analysis';
 import { MonthFilter } from './components/month-filter/month-filter';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -47,6 +47,7 @@ export class Dashboard implements OnInit {
   });
 
   transactions = signal<any[]>([]);
+  router = inject(Router);
   ngOnInit(): void {
     this.loadDashboard();
   }
@@ -82,5 +83,10 @@ openTransaction(type: 'CREDIT' | 'DEBIT'){
     }
   });
 
+}
+logout() {
+  localStorage.removeItem('token');
+  window.location.reload();
+  this.router.navigate(['/'])
 }
 }
