@@ -3,3 +3,14 @@
     gap: 12px;
     align-items: center;
 }
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.dashboard-header mat-form-field {
+  width: 130px;
+}

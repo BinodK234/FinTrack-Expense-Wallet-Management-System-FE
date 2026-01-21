@@ -20,5 +20,6 @@ export const routes: Routes = [
       // later: add-money, spend-money, transactions
     ]
   },
-  {path: 'transactions', component: Transactions}
+  {path: 'transactions', component: Transactions},
+  { path: '**', redirectTo: 'dashboard' }
 ];

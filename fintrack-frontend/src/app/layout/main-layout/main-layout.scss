@@ -1,0 +1,35 @@
+mat-sidenav {
+  background: #0f172a;
+  color: white;
+  width: 240px;
+  padding: 18px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: white;
+}
+
+mat-sidenav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: #cbd5e1;
+  text-decoration: none;
+  margin-bottom: 6px;
+  transition: 0.2s;
+}
+
+mat-sidenav a:hover {
+  background: rgba(255,255,255,0.08);
+  color: white;
+}
+
+mat-sidenav a.active {
+  background: var(--primary);
+  color: white;
+}

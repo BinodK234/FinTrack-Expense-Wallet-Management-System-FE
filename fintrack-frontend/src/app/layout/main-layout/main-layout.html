@@ -1,1 +1,23 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="layout">
+
+  <mat-sidenav mode="side" opened>
+    <h2 class="logo">FinTrack</h2>
+
+    <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
+      <mat-icon>dashboard</mat-icon> Dashboard
+    </a>
+
+    <a mat-list-item routerLink="/transactions" routerLinkActive="active">
+      <mat-icon>receipt_long</mat-icon> Transactions
+    </a>
+
+    <a mat-list-item (click)="logout()" class="logout">
+      <mat-icon>logout</mat-icon> Logout
+    </a>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
