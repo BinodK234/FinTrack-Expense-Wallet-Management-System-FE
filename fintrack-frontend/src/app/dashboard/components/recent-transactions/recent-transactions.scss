@@ -1,0 +1,19 @@
+.recent-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.recent-item:last-child {
+  border-bottom: none;
+}
+
+.recent-type {
+  font-weight: 600;
+}
+
+.recent-date {
+  font-size: 12px;
+  color: var(--muted);
+}

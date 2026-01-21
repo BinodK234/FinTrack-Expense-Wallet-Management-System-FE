@@ -2,3 +2,12 @@ canvas {
   width: 100% !important;
   height: 260px !important;
 }
+
+
+.block, mat-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
