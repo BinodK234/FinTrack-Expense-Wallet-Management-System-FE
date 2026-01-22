@@ -3,8 +3,6 @@ import { Login } from './auth/login/login';
 import { Register } from './auth/register/register';
 import { MainLayout } from './layout/main-layout/main-layout';
 import { Dashboard } from './dashboard/dashboard';
-import { AddMoney } from './wallet/add-money/add-money';
-import { SpendMoney } from './wallet/spend-money/spend-money';
 import { Transactions } from './wallet/transactions/transactions';
 import { authGuard } from './core/guards/auth-guard';
 
