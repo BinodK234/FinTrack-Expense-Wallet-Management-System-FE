@@ -15,9 +15,10 @@ export const routes: Routes = [
     canActivate: [authGuard],
     children: [
       { path: 'dashboard', component: Dashboard },
+      {path: 'transactions', component: Transactions},
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
       // later: add-money, spend-money, transactions
     ]
   },
-  {path: 'transactions', component: Transactions},
   { path: '**', redirectTo: 'dashboard' }
 ];

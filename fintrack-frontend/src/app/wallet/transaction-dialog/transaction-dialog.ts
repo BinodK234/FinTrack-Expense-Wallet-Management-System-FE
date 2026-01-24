@@ -65,8 +65,6 @@ export class TransactionDialog {
       next: (res) => {
         this.snack.open('Transaction added', 'OK', { duration: 2500 });
         this.dialogRef.close(true);
-        console.log('Transaction successful:', res);
-        console.log(this.form.value);
       },
     });
   }

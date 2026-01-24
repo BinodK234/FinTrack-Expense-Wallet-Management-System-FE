@@ -37,11 +37,8 @@ export class Login implements OnInit {
     this.router.navigate(['register']);
   }
   submit() {
-    console.log(this.form.value);
     this.authService.login(this.form.value).subscribe((res: any) => {
-      console.log(res);
       this.authService.saveToken(res.token);
-      debugger;
       this.router.navigate(['dashboard']);
     });
   }
