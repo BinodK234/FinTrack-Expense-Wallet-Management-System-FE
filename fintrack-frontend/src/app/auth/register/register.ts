@@ -26,7 +26,6 @@ export class Register {
   }
 
   submit(){
-    console.log(this.form.value);
     this.authService.register(this.form.value).subscribe((res: any) => {
       // if (res.Status == 201) {
         alert(res.message)

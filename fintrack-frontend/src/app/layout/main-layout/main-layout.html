@@ -1,4 +1,30 @@
-<mat-sidenav-container class="layout">
+<!-- header -->
+<div class="layout-container">
+  <div class="header">
+    <app-header></app-header>
+  </div>
+  <!-- sidenav with main layout -->
+  <div>
+    <app-sidebar></app-sidebar>
+    <!-- <main class="main-container"> -->
+      <!-- <router-outlet></router-outlet> -->
+    <!-- </main> -->
+  </div>
+  <!-- footer -->
+  <div class="footer">
+    <app-footer></app-footer>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <mat-sidenav-container class="layout">
+  <app-sidebar></app-sidebar>
 
   <mat-sidenav mode="side" opened>
     <h2 class="logo">FinTrack</h2>
@@ -14,10 +40,11 @@
     <a mat-list-item (click)="logout()" class="logout">
       <mat-icon>logout</mat-icon> Logout
     </a>
-  </mat-sidenav>
+  </mat-sidenav> 
 
   <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 
-</mat-sidenav-container>
+</mat-sidenav-container> -->
+

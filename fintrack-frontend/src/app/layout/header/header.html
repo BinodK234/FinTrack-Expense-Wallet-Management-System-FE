@@ -1,1 +1,46 @@
-<p>header works!</p>
+<!-- <mat-toolbar class="toolbar-maim" style="background-color: #006bd3;">
+    <a>
+        <img alt="fintrack">
+    </a>
+    <div class="user-menu">
+        <img class="user">
+        <span class="uer-name" style="color: white;">{{  authService.currentUser()?.name }}</span>
+        <button>user</button>
+    </div>
+    <mat-menu>
+        <span>
+            <button>Logout</button>
+        </span>
+    </mat-menu>
+
+</mat-toolbar> -->
+
+
+
+<mat-toolbar class="toolbar-main">
+    <div class="toolbar-content">
+        <!-- Left side - Logo/Brand -->
+        <div class="brand">
+            <img src="assets/logo.png" alt="fintrack" class="logo">
+            <div class="brand-text">
+                <span class="tagline">Tracking your path to financial freedom.</span>
+            </div>
+        </div>
+        
+        <!-- Right side - User menu -->
+        <div class="user-menu">
+            <button mat-button [matMenuTriggerFor]="userMenu" class="user-button">
+                <mat-icon class="user-icon">account_circle</mat-icon>
+                <span class="user-name">{{ authService.currentUser()?.name || 'Guest' }}</span>
+                <mat-icon class="dropdown-icon">keyboard_arrow_down</mat-icon>
+            </button>
+            
+            <mat-menu #userMenu="matMenu" class="user-dropdown">
+                <button mat-menu-item (click)="logout()">
+                    <mat-icon>logout</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </mat-menu>
+        </div>
+    </div>
+</mat-toolbar>

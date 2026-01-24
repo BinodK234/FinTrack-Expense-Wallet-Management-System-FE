@@ -56,7 +56,6 @@ loadDashboard() {
   this.dashboardService.getWalletSummary().subscribe({
     next: (res: any) => {
       // this.summary = res; // important: new reference
-      console.log('After assignment, this.summary:', this.summary);
       this.summary.set(res);
       // this.cdr.detectChanges();
     },
@@ -65,7 +64,6 @@ loadDashboard() {
 
   this.dashboardService.getRecentTransactions().subscribe({
     next: (res: any) => {
-      console.log('Transactions Response:', res);
       this.transactions.set(res);
     },
     error: err => console.error(err)
